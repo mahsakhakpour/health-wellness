@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String   @default("PARENT")
+  createdAt DateTime @default(now())
+  
+  children  Child[]
+}
+
+model Child {
+  id          String   @id @default(cuid())
+  name        String
+  birthDate   DateTime
+  diagnoses   String
+  bloodType   String?
+  allergies   String?
+  parentId    String
+  parent      User     @relation(fields: [parentId], references: [id])
+  
+  medications  Medication[]
+  appointments Appointment[]
+  therapyGoals TherapyGoal[]
+  visitNotes   VisitNote[]
+}
+
+model Medication {
+  id        String   @id @default(cuid())
+  name      String
+  dosage    String
+  frequency String
+  purpose   String
+  startDate DateTime
+  endDate   DateTime?
+  childId   String
+  child     Child    @relation(fields: [childId], references: [id])
+}
+
+model Appointment {
+  id        String   @id @default(cuid())
+  type      String
+  provider  String
+  date      DateTime
+  notes     String?
+  childId   String
+  child     Child    @relation(fields: [childId], references: [id])
+}
+
+model TherapyGoal {
+  id            String   @id @default(cuid())
+  area          String
+  description   String
+  currentLevel  Int
+  targetLevel   Int
+  childId       String
+  child         Child    @relation(fields: [childId], references: [id])
+}
+
+model VisitNote {
+  id        String   @id @default(cuid())
+  provider  String
+  date      DateTime
+  notes     String
+  childId   String
+  child     Child    @relation(fields: [childId], references: [id])
+}
