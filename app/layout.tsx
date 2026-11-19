@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nurture Health | Complete Family Health Record",
+  title: "NurKin | Complete Family Health Record",
   description: "Centralized health record platform for families with special needs children",
 };
 

@@ -230,7 +230,7 @@ export default function DashboardPage() {
               <div className="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">N</span>
               </div>
-              <span className="font-semibold text-xl text-slate-900">Nurture Health</span>
+              <span className="font-semibold text-xl text-slate-900">NurKin</span>
               <span className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Family Record</span>
             </div>
             <div className="flex items-center gap-4">

@@ -39,7 +39,7 @@ export default function LoginPage() {
             <span className="text-white text-xl font-bold">N</span>
           </div>
           <h2 className="text-3xl font-bold text-slate-900">
-            Nurture Health
+            NurKin
           </h2>
           <p className="mt-2 text-sm text-slate-600">
             Complete family health record
